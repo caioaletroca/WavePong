@@ -3,13 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManagerController : MonoBehaviour
+public class GameManagerController : BaseSingleton<GameManagerController>
 {
     #region Unity Events
-
-    public void Awake() {
-
-    }
 
     public void Start()
     {
@@ -18,11 +14,11 @@ public class GameManagerController : MonoBehaviour
             LoadScene(Scenes.MainMenu);
     }   
 
-    public void OnStartMatch()
+    public void StartMultiPlayer()
     {
-        SceneManager.UnloadSceneAsync("MainMenuScene");
+        SceneManager.UnloadSceneAsync(Scenes.MainMenu);
         
-        SceneManager.LoadScene("MainScene", LoadSceneMode.Additive);
+        SceneManager.LoadScene(Scenes.MultiPlay, LoadSceneMode.Additive);
     }
 
     #endregion

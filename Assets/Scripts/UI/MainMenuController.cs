@@ -8,9 +8,7 @@ public class MainMenuController : MonoBehaviour
 
     public void OnPlayButtonClick()
     {
-        // SceneManager.LoadScene("MainScene");
-        var test = Object.FindObjectOfType<GameManagerController>();
-        test.OnStartMatch();
+        GameManagerController.Instance.StartMultiPlayer();
     }
 
     public void OnQuitButtonClick()

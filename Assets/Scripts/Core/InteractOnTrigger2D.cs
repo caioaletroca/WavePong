@@ -2,36 +2,36 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// Handles collision interactions on game objects
+/// Handles collision trigger interactions on game objects
 /// </summary>
 [RequireComponent(typeof(Collider2D))]
-public class InteractOnCollision2D : BaseInteract
+public class InteractOnTrigger2D : BaseInteract
 {
     #region Public Properties
 
     /// <summary>
     /// The event fired when the interaction happens
     /// </summary>
-    public UnityEvent OnCollision;
+    public UnityEvent OnTrigger;
 
     /// <summary>
     /// The event fired when the interaction happens with parameters
     /// </summary>
-    public InteractCollision2DEvent OnCollisionParameter;
+    public InteractTrigger2DEvent OnTriggerParameter;
 
     #endregion
 
     #region Unity Methods
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!enabled)
             return;
 
         if (Layers.Contains(collision.gameObject))
         {
-            OnCollision?.Invoke();
-            OnCollisionParameter?.Invoke(collision);
+            OnTrigger?.Invoke();
+            OnTriggerParameter?.Invoke(collision);
         }
     }
 
