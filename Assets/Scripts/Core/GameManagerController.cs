@@ -13,7 +13,9 @@ public class GameManagerController : MonoBehaviour
 
     public void Start()
     {
-        // SceneManager.LoadScene("MainMenuScene", LoadSceneMode.Additive);
+        // Checks if there is a scene loaded
+        if(SceneManager.sceneCount == 1)
+            LoadScene(Scenes.MainMenu);
     }   
 
     public void OnStartMatch()
@@ -23,5 +25,13 @@ public class GameManagerController : MonoBehaviour
         SceneManager.LoadScene("MainScene", LoadSceneMode.Additive);
     }
 
+    #endregion
+
+    #region Public Methods
+    
+    public void LoadScene(string SceneName) {
+        SceneManager.LoadScene(SceneName, LoadSceneMode.Additive);
+    }
+        
     #endregion
 }
