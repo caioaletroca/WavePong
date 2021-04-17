@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69907d19e91e9e40b497fdd330a759d, type: 3}
   m_Name: BallModel
   m_EditorClassIdentifier: 
-  Velocity: {x: 4.32506, y: -2.508754}
-  Randomness: 1
+  Velocity: {x: 0, y: 0}
+  Randomness: 0.5

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +6,12 @@ using UnityEngine;
 public class BallController : MonoBehaviour
 {
     #region Public Properties
+
+    [Tooltip("Time to delay in seconds for start the match")]
+    public float StartDelay = 1f;
+
+    [Tooltip("Ball velocity in the start of the match")]
+    public float InitialVelocity = 1f;
 
     [Tooltip("Maximum randomness in degrees")]
     public float MaxRandomness = 90;
@@ -16,7 +22,7 @@ public class BallController : MonoBehaviour
     #endregion
 
     #region Private Variables
-    
+
     private Rigidbody2D rb;
 
     #endregion
@@ -34,6 +40,15 @@ public class BallController : MonoBehaviour
         
     #endregion
 
+    #region Public Methods
+
+    public void OnGameStart()
+    {
+        StartCoroutine(StartDelayed());
+    }
+        
+    #endregion
+
     #region Collisions
 
     public void OnPlayerCollision(Collision2D col)
@@ -46,5 +61,21 @@ public class BallController : MonoBehaviour
         model.Velocity = Vector2.Reflect(model.Velocity, col.GetContact(0).normal);
     }
 
+    #endregion
+
+    #region Coroutines
+
+    IEnumerator StartDelayed()
+    {
+        // Stop ball
+        model.Velocity = Vector2.zero;
+        transform.position = Vector2.zero;
+
+        yield return new WaitForSeconds(StartDelay);
+
+        // Start ball
+        model.Velocity = UnityEngine.Random.insideUnitCircle.normalized * InitialVelocity;
+    }
+        
     #endregion
 }
