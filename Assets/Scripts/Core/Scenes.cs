@@ -7,4 +7,6 @@ public static class Scenes {
     public const string MainMenu = "MainMenuScene";
 
     public const string MultiPlay = "MultiPlayScene";
+
+    public const string PauseMenu = "PauseMenuScene";
 }

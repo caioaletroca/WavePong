@@ -6,4 +6,6 @@ using UnityEngine;
 public class PlayerModelScriptableObject : ScriptableObject
 {
     public float Velocity = 500;
+
+    public int Score = 0;
 }

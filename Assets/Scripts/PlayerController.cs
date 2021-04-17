@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     #region Public Variables
+
+    [Tooltip("Player model data instance")]
     public PlayerModelScriptableObject model;
 
     #endregion
@@ -38,4 +40,13 @@ public class PlayerController : MonoBehaviour
     {
         Direction = context.ReadValue<Vector2>();
     }
+
+    #region Unity Events
+
+    public void OnPlayerDeath()
+    {
+        model.Score++;
+    }
+        
+    #endregion
 }

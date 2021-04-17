@@ -1,18 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MultiPlayerUIController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    #region Public Properties
 
-    // Update is called once per frame
-    void Update()
+    public PlayerModelScriptableObject Player1Model;
+
+    public TextMeshProUGUI Player1Score;
+
+    #endregion
+
+    #region Unity Methods
+
+    private void Update()
     {
-        
+        Player1Score.text = Player1Model.Score.ToString();
     }
+        
+    #endregion
 }

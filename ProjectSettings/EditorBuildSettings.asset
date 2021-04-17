@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Application.unity
     guid: ba60f0b7138dd55489ddd2820d2952b7
   - enabled: 1
-    path: Assets/Scenes/MainMenuScene.unity
+    path: Assets/Scenes/Menus/MainMenuScene.unity
     guid: db10170678bbf6b4cb8f132a062b067e
   - enabled: 1
-    path: Assets/Scenes/MultiPlayScene.unity
+    path: Assets/Scenes/Matches/MultiPlayScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Menus/PauseMenuScene.unity
+    guid: 395ee2154ddb1d6499bc18f8c0e421b4
   m_configObjects: {}

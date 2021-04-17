@@ -25,6 +25,8 @@ public class BallController : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    private AudioSource audioSource;
+
     #endregion
 
     #region Unity Methods
@@ -32,6 +34,7 @@ public class BallController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate() {
@@ -55,10 +58,12 @@ public class BallController : MonoBehaviour
     {
         // TODO: Fix this
         model.Velocity = Vector2.Reflect(model.Velocity, col.GetContact(0).normal).Rotate(model.Randomness * MaxRandomness);
+        audioSource?.Play();
     }
 
     public void OnWallCollision(Collision2D col) {
         model.Velocity = Vector2.Reflect(model.Velocity, col.GetContact(0).normal);
+        audioSource?.Play();
     }
 
     #endregion
